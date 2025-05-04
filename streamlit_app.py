@@ -41,8 +41,7 @@ if file_a and file_b:
         output = io.BytesIO()
         with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
             df_merged.to_excel(writer, index=False, sheet_name='VLOOKUP_Result')
-            writer.save()
-        st.download_button(
+                 st.download_button(
             label="📥 Download Result Excel",
             data=output.getvalue(),
             file_name="vlookup_result.xlsx",
