@@ -59,12 +59,12 @@ if file_a and file_b:
                 df_a["_match_score"] = match_scores
 
                 df_b_renamed = df_b.rename(columns={col_b: "_fuzzy_match_key"})
+                safe_bring_cols = [col for col in bring_cols if col != col_b]
 
-                df_merged = pd.merge(df_a, df_b_renamed[["_fuzzy_match_key"] + bring_cols],
+                df_merged = pd.merge(df_a, df_b_renamed[["_fuzzy_match_key"] + safe_bring_cols],
                                      on="_fuzzy_match_key", how="left")
                 st.success("✅ Fuzzy VLOOKUP Completed!")
             else:
-                # Exact Match
                 df_merged = pd.merge(df_a, df_b[[col_b] + bring_cols],
                                      left_on=col_a, right_on=col_b, how="left")
                 st.success("✅ Exact VLOOKUP Completed!")
