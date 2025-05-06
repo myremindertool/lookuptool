@@ -4,7 +4,7 @@ import io
 from rapidfuzz import process, fuzz
 
 st.set_page_config(page_title="VLOOKUP Tool", layout="wide")
-st.title("🔍 Easy VLOOKUP Tool with Fuzzy Matching")
+st.title("🔍 JC VLOOKUP Tool ")
 
 # Select mode: two files or one file with two sheets
 mode = st.radio("Choose Comparison Mode:", ["Compare two Excel files", "Compare two sheets in one file"])
